@@ -1,0 +1,32 @@
+spring: 
+    profiles: 
+        active:
+           - dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: provider-ticket1
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  application:
+    name: provider-ticket2
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
