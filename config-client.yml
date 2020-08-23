@@ -1,0 +1,30 @@
+spring: 
+    profiles: 
+        active:
+           - dev
+---
+server:
+    port: 8201
+spring:
+    profiles: dev
+    application:
+        name: config-client
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+---
+server:
+    prot: 8202
+spring:
+    profiles: test
+    application:
+        name: config-client
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
